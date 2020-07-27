@@ -38,7 +38,8 @@ router.post('/launch', function (req, res) {
             console.log(err); /* log error */
             processResponse(false, 500, 'Error While Fetching Data!', err, res);
          } else {
-            processResponse(true, 200, 'Successfully Fetched!', phpResponse, res);
+           // processResponse(true, 200, 'Successfully Fetched!', phpResponse, res);
+		res.send(phpResponse);
          }
       });
    } catch (err) {
