@@ -1,26 +1,31 @@
+"use strict";
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var config = require('./config/environment');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var router = express.Router();
 var fs = require("fs");
 var runner = require("child_process");
+var uniqid = require('uniqid');
 var phpScriptPath = "./script.php";
 const lti = './lti_consumer.php';
 // var argsString = "value1,value2,value3";
+const launchModel = require('./models/launch.model').model;
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
    next();
- });
+});
 
 app.use('/', router);
 
-router.get('/get', function(req, res) {
+router.get('/get', function (req, res) {
    res.send('Get up...');
 });
 
@@ -38,13 +43,27 @@ router.post('/launch', function (req, res) {
             console.log(err); /* log error */
             processResponse(false, 500, 'Error While Fetching Data!', err, res);
          } else {
-           // processResponse(true, 200, 'Successfully Fetched!', phpResponse, res);
-		res.send(phpResponse);
+            // processResponse(true, 200, 'Successfully Fetched!', phpResponse, res);
+            res.send(phpResponse);
          }
       });
    } catch (err) {
       console.log(err);
       processResponse(false, 500, 'Error While Fetching Data!', err, res);
+   }
+});
+
+router.get('/launch/lti/data', async(req, res) => {
+   try {
+      console.log(req.params);
+      console.log(res);
+      const params = {
+         data: req.params + ' & ' + res
+      };
+      const launch = new launchModel(params);
+      const result = await launch.save();
+   } catch(err) {
+      console.log(err);
    }
 });
 
