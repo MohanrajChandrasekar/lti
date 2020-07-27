@@ -43,6 +43,7 @@ $launch_data["oauth_version"] = "1.0";
 $launch_data["oauth_nonce"] = uniqid('', true);
 $launch_data["oauth_timestamp"] = $now->getTimestamp();
 $launch_data["oauth_signature_method"] = "HMAC-SHA1";
+$launch_data["lis_outcome_service_url"] = "http://52.172.30.16:8081/launch/lti/data";
 
 # In OAuth, request parameters must be sorted by name
 $launch_data_keys = array_keys($launch_data);
