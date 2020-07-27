@@ -11,7 +11,7 @@ var uniqid = require('uniqid');
 var phpScriptPath = "./script.php";
 const lti = './lti_consumer.php';
 // var argsString = "value1,value2,value3";
-const launchModel = require('./models/launch.model').model;
+// const launchModel = require('./models/launch.model').model;
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
@@ -43,7 +43,6 @@ router.post('/launch', function (req, res) {
             console.log(err); /* log error */
             processResponse(false, 500, 'Error While Fetching Data!', err, res);
          } else {
-            // processResponse(true, 200, 'Successfully Fetched!', phpResponse, res);
             res.send(phpResponse);
          }
       });
@@ -60,8 +59,8 @@ router.get('/launch/lti/data', async(req, res) => {
       const params = {
          data: req.params + ' & ' + res
       };
-      const launch = new launchModel(params);
-      const result = await launch.save();
+      // const launch = new launchModel(params);
+      // const result = await launch.save();
    } catch(err) {
       console.log(err);
    }

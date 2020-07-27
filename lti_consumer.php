@@ -21,8 +21,8 @@ $launch_data = array(
 	"context_id" => "456434513",
 	"context_title" => "Design of Personal Environments",
 	"context_label" => "SI182",
-	"tool_consumer_instance_guid" => "lmsng.school.edu",
-	"tool_consumer_instance_description" => "University of School (LMSng)"
+	"tool_consumer_instance_guid" => "",
+	"tool_consumer_instance_description" => "Larson & Turbo - Technical Educations."
 );
 
 #
