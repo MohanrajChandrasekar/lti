@@ -6,33 +6,22 @@ $params = explode(",", $argv[1]);
 $launch_url = $params[0];
 $key = $params[1];
 $secret = $params[2];
-$user_id = $params[3];
-$roles = $params[4];
-$context_id = $params[5];
-$context_title = $params[6];
-$context_label = $params[7];
-$lis_person_name_given = $params[8];
-$lis_person_name_full = $params[9];
-$lis_person_contact_email_primary = $params[10];
-
-// $users = explode(',', $argv[2]);
-// $userName = explode(',', $argv[3]);
 
 $launch_data = array(
-	"user_id" => $user_id,
-	"roles" => $roles,
+	"user_id" => "292832126",
+	"roles" => "Instructor",
 	"resource_link_id" => "120988f929",
 	// "resource_link_title" => "Weekly Blog",
 	// "resource_link_description" => "A weekly blog.",
-	"lis_person_name_full" => $lis_person_name_full,
-	"lis_person_name_family" => $lis_person_name_full,
-	"lis_person_name_given" => $lis_person_name_given,
-	"lis_person_contact_email_primary" => $lis_person_contact_email_primary,
-	// "lis_person_sourcedid" => "",
-	"context_id" => $context_id,
-	"context_title" => $context_title,
-	"context_label" => $context_label,
-	"tool_consumer_instance_guid" => "LTI_12345",
+	"lis_person_name_full" => "Jane Q. Public",
+	"lis_person_name_family" => "Public",
+	"lis_person_name_given" => "Given",
+	"lis_person_contact_email_primary" => "user@school.edu",
+	"lis_person_sourcedid" => "school.edu:user",
+	"context_id" => "456434513",
+	"context_title" => "Design of Personal Environments",
+	"context_label" => "SI182",
+	"tool_consumer_instance_guid" => "LTI_116753",
 	"tool_consumer_instance_description" => "Larson & Turbo - Technical Educations."
 );
 
