@@ -7,21 +7,24 @@ $launch_url = $params[0];
 $key = $params[1];
 $secret = $params[2];
 
+$users = explode(',', $argv[2]);
+$userName = explode(',', $argv[3]);
+
 $launch_data = array(
-	"user_id" => "292832126",
-	"roles" => "Instructor",
+	"user_id" => $users[0],
+	"roles" => $users[1],
 	"resource_link_id" => "120988f929",
 	// "resource_link_title" => "Weekly Blog",
 	// "resource_link_description" => "A weekly blog.",
-	"lis_person_name_full" => "Jane Q. Public",
-	"lis_person_name_family" => "Public",
-	"lis_person_name_given" => "Given",
-	"lis_person_contact_email_primary" => "user@school.edu",
-	"lis_person_sourcedid" => "school.edu:user",
-	"context_id" => "456434513",
-	"context_title" => "Design of Personal Environments",
-	"context_label" => "SI182",
-	"tool_consumer_instance_guid" => "",
+	"lis_person_name_full" => $userName[1],
+	"lis_person_name_family" => $userName[1],
+	"lis_person_name_given" => $userName[0],
+	"lis_person_contact_email_primary" => $userName[2],
+	// "lis_person_sourcedid" => "",
+	"context_id" => $users[2],
+	"context_title" => $users[3],
+	"context_label" => $users[4],
+	"tool_consumer_instance_guid" => "LTI_12345",
 	"tool_consumer_instance_description" => "Larson & Turbo - Technical Educations."
 );
 

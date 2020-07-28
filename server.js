@@ -37,8 +37,10 @@ router.post('/launch', function (req, res) {
       // const secret = 'LTIConsumer123456789';
       // const sharedSecret = 'LTIConsumer123456789s';
 
-      var argsString = object.launchURL + ',' + object.secret + ',' + object.sharedSecret;
-      runner.exec("php " + lti + ' ' + argsString, function (err, phpResponse, stderr) {
+      var arg1 = object.launchURL + ',' + object.secret + ',' + object.sharedSecret;
+      var arg2 = object.user_id + ',' + object.roles + ',' + object.context_id ? null : '' + ',' + object.context_title + ',' + object.context_label;
+      var arg3 = object.lis_person_name_given + ',' + object.lis_person_name_full + ',' + object.lis_person_contact_email_primary;
+      runner.exec("php " + lti + ' ' + arg1 + ' ' + arg2 + ' ' + arg3, function (err, phpResponse, stderr) {
          if (err) {
             console.log(err); /* log error */
             processResponse(false, 500, 'Error While Fetching Data!', err, res);
