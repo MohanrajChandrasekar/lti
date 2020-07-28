@@ -37,7 +37,7 @@ router.post('/launch', function (req, res) {
       // const secret = 'LTIConsumer123456789';
       // const sharedSecret = 'LTIConsumer123456789s';
 
-      var argsString = object.launchURL + ',' + object.secret + ',' + object.sharedSecret + ',' + object.user_id + ',' + object.roles + ',' + object.context_id + ',' + object.context_title + ',' + object.context_label + ',' + object.lis_person_name_given + ',' + object.lis_person_name_full + ',' + object.lis_person_contact_email_primary;
+      var argsString = object.launchURL + ',' + object.secret + ',' + object.sharedSecret + ',' + object.user_id + ',' + object.role + ',' + object.context_id + ',' + object.context_title + ',' + object.context_label + ',' + object.lis_person_name_given + ',' + object.lis_person_name_full + ',' + object.lis_person_contact_email_primary;
        runner.exec("php " + lti + ' ' + argsString, function (err, phpResponse, stderr) {
          if (err) {
             console.log(err); /* log error */
